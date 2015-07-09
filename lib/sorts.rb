@@ -29,19 +29,30 @@ class Sorts
       length -=1
     end
     array
+  end
 
-    # until swap == false
+  def merge_sort(array)
+    return array if array.length <=1
+    array1 = merge_sort(array[0..(array.length/2)])
+    array2 = merge_sort(array[(array.length/2+1)..-1])
+    merge(array1, array2)
+    #recursive
+    #split it up to one
+    #merge into 2
+    #merge into 4
+    #...
+  end
 
-    #   swap = false
-    #   (0...array.length).each do |index|
-
-    #     if array[index] > array[index+1]
-    #       array[index], array[index+1] = array[index+1], array[index]
-    #       swap = true
-    #     end
-    #   end
-    # end
-
+  def merge(array1, array2)
+    result =[]
+    until array1.empty? || array2.empty?
+      if array1[0] < array2[0]
+        result << array1.shift
+      else
+        result << array2.shift
+      end
+    end
+    result += array1 + array2
   end
 
 
