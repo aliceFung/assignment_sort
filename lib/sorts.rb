@@ -60,19 +60,21 @@ class Sorts
 
     10000.times { insertion_sort(array) }
 
-    puts "The time it took to run insertion_sort was #{Time.now-t0}"
+    puts "The time it took to run insertion_sort for #{array.length} elements a total of 10,000 times was #{Time.now-t0}"
 
     t0 = Time.now
 
     10000.times { bubble_sort(array) }
 
-    puts "The time it took to run bubble_sort was #{Time.now-t0}"
+    puts "The time it took to run bubble_sort for #{array.length} elements a total of 10,000 times was #{Time.now-t0}"
 
     t0 = Time.now
 
     10000.times { merge_sort(array) }
 
-    puts "The time it took to run merge sort was #{Time.now-t0}"
+    puts "The time it took to run merge sort for #{array.length} elements a total of 10,000 times was #{Time.now-t0}"
+
+    puts "-----------------------------------------------"
 
   end
 
@@ -81,11 +83,12 @@ end
 
 s = Sorts.new
 
-#s.benchmark(%w(20 19 18 17 16 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0))
+s.benchmark(%w(20 19 18 17 16 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0))
 
-#s.benchmark(%w(5 1 3))
+s.benchmark(%w(0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20))
 
-s.benchmark(Array.new(5000) {rand(0..100)})
+test_array = Array.new(500) { rand(0..100) }
+s.benchmark(test_array)
 
 
 
