@@ -18,18 +18,29 @@ class Sorts
 
   def bubble_sort(array)
 
-    swap = false
+    length = array.length
 
-    until swap == false
-
-      (0...array.length).each do |index|
-
+    (length-1).times do
+      (0...length-1).each do |index|
         if array[index] > array[index+1]
           array[index], array[index+1] = array[index+1], array[index]
-          swap = true
         end
       end
+      length -=1
     end
+    array
+
+    # until swap == false
+
+    #   swap = false
+    #   (0...array.length).each do |index|
+
+    #     if array[index] > array[index+1]
+    #       array[index], array[index+1] = array[index+1], array[index]
+    #       swap = true
+    #     end
+    #   end
+    # end
 
   end
 
