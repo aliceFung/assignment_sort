@@ -38,8 +38,20 @@ describe Sorts do
       subject.merge_sort([1,2])
     end
 
-    it 'should sort' do
+    it 'should sort an odd number of numbers' do
       expect(subject.merge_sort( [1,3,7,2,5] )).to eq([1,2,3,5,7])
+    end
+
+    it 'should sort an even number of numbers' do
+      expect(subject.merge_sort( [1,10,3,7,2,5] )).to eq([1,2,3,5,7,10])
+    end
+
+    it 'should sort a one element array' do
+      expect(subject.merge_sort( [1] )).to eq([1])
+    end
+
+    it 'should sort a two element array' do
+      expect(subject.merge_sort( [2000, 1] )).to eq([1, 2000])
     end
 
   end
