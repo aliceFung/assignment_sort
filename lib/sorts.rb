@@ -1,37 +1,37 @@
 class Sorts
 
   def insertion_sort(array)
-    sorted = [array[0]]
 
-    next_item = array[1]
-    counter = -1
-    until next_item < sorted[counter]
-      sorted[counter] = sorted[counter-1]
-      # sorted[-1] = sorted[-2]
-      next_item = sorted[counter-2]
-      counter -= 1
-    else
-      sorted << next_item
+    (1...array.length).each do |first_index|
+
+      current_number = array[first_index]
+      second_index = first_index - 1 #[2]
+      #7 > 2
+      while second_index >= 0 && array[second_index] > current_number
+        array[second_index+1] = array[second_index]
+        second_index -= 1
+      end
+      array[second_index+1] = current_number
+    end
+    array
+  end
+
+  def bubble_sort(array)
+
+    swap = false
+
+    until swap == false
+
+      (0...array.length).each do |index|
+
+        if array[index] > array[index+1]
+          array[index], array[index+1] = array[index+1], array[index]
+          swap = true
+        end
+      end
     end
 
-
-    array.each do |item|
-      minimum = item if item < minimum
-    end
-
-    sorted << minimum
-
   end
-  #last_sorted = 0
-  def insert(array, last_sorted, first_unsorted)
-
-    while last_sorted <= 0 &&
-
-
-  end
-  3
-  1,7,2,5
-
 
 
 end
